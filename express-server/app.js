@@ -7,7 +7,10 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   console.log("access to /");
-  res.send("<h1>Hello World!</h1>");
+  res.send(`
+  <h1>Hello World!</h1>
+    <a href="/desert">Click to see a desert</a>
+  `);
 });
 
 app.get("/about", (req, res) => {
@@ -15,17 +18,8 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/desert", (req, res) => {
-  res.send(`
-  <html>
-    <head>
-        <link rel="stylesheet" href="/stylesheets/style.css" />
-    </head>
-    <body>
-        <h1>Desert</h1>
-        <img src="/images/desert.jpeg" />
-    </body>
-  </html>
-  `);
+  console.log(__dirname);
+  res.sendFile(__dirname + "/views/desert-page.html");
 });
 
 app.get("*", (req, res) => {
