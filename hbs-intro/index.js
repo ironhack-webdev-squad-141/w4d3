@@ -15,7 +15,14 @@ app.get("*", (req, res) => {
     randomNumber: Math.random(),
     url: req.url,
     counter,
-    moviesList: []
+    moviesList: [..."abcdefghijlkmnopqrstuvwxyz"],
+    bool: 1,
+    // not undefined, '', 0, false, null, [],
+    movie: {
+      title: "Titanic",
+      director: "James Cameron",
+      year: "1997"
+    }
   });
 });
 

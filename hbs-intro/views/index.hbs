@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <h1>{{ heading }}</h1>
+    <p>This is a paragraph</p>
+    <p>{{ randomNumber }}</p>
+    <p> You are visitor number: {{ counter }} </p>
+
+    {{#if bool}}
+    <a href="/">Home</a>
+    {{else if counter}}
+    <a href="/about">About</a>
+    {{else}}
+    <p>Error</p>
+    {{/if}}
+
+    {{#unless bool}}
+    <div>
+        {{url}}
+    </div>
+    {{/unless}}
+
+    <div>
+        <h2>Movies List</h2>
+        <ul>
+            {{#each moviesList}}
+            {{!-- {{#unless @first}} --}}
+            {{#unless @last}}
+            <li>{{@index}}: {{ this }} </li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div>
+        {{#with movie}}
+        <h2>{{year}}</h2>
+        {{/with}}
+        {{!-- <h2>{{movie.title}}</h2> --}}
+        <ul>
+            {{#each movie}}
+            <li>{{@key}}: {{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+
+</body>
+
+</html>

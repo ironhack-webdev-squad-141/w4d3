@@ -15,6 +15,7 @@ app.get("/players", (req, res) => {
 });
 
 app.get("/teams", (req, res) => {
+  //   res.render("teams", { layout: false });
   res.render("teams");
 });
 
