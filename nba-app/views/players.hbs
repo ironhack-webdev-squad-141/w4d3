@@ -1,1 +1,11 @@
-<h2>Players</h2>
+{{#each playersList}}
+<div>
+    <div class="card-img">
+        {{!-- <img src={{this.photo}} /> --}}
+    </div>
+    <div class="card-body">
+        <h5>{{this.name}} {{this.lastName}}</h5>
+        <p>{{this.team}}</p>
+    </div>
+</div>
+{{/each}}
