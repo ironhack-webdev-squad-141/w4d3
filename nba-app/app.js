@@ -1,8 +1,12 @@
 const express = require("express");
+const hbs = require("hbs");
+
 const app = express();
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
+
+hbs.registerPartials(__dirname + "/views/partials");
 
 app.use(express.static("public"));
 
@@ -56,13 +60,28 @@ app.get("/players", (req, res) => {
     }
   ];
 
-  res.render("players", {
-    playersList: players
-  });
+  let name = "Bianca";
+
+  const obj = {
+    //   name: name
+    name
+  };
+
+  const title = "List of players";
+
+  res.render("players", { playersList: players, title: title });
 });
 
 app.get("/teams", (req, res) => {
-  res.render("teams", { layout: false });
+  const player = {
+    name: "Kobe",
+    lastName: "Bryant",
+    team: "LAK",
+    photo:
+      "https://clutchpoints.com/wp-content/uploads/2017/10/Kobe-Bryant-e1508564618882.jpg"
+  };
+
+  res.render("teams", { player, layout: false });
   //   res.render("teams");
 });
 

@@ -4,3 +4,16 @@
   align-items: center;
   height: 80vh;
 }
+
+.players-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 100px auto;
+  justify-content: space-between;
+}
+
+.card {
+  width: calc(33.33% - 20px);
+  margin: 10px auto;
+}
